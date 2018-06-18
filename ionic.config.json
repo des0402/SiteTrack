@@ -1,0 +1,8 @@
+{
+  "name": "protrack",
+  "app_id": "e808f3a7",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

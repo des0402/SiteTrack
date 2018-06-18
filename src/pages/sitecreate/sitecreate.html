@@ -1,0 +1,44 @@
+<!--
+  Generated template for the SitecreatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add new site</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="siteForm" (submit)="addNewSite()" novalidate>
+    <ion-item>
+      <ion-label stacked>Site Name</ion-label>
+      <ion-input formControlName="siteName" type="text"
+      placeholder="Enter site name" 
+      [class.invalid]="!siteForm.controls.siteName.valid && blur" ></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!siteForm.controls.siteName.valid && siteForm.controls.siteName.touched">
+      <p>Please enter site name</p>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label stacked>Address</ion-label>
+      <ion-input formControlName="siteAddress" type="text" placeholder="Enter site address"
+      [class.invalid]="!siteForm.controls.siteName.valid && blur"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!siteForm.controls.siteAddress.valid && siteForm.controls.siteAddress.touched">
+      <p>Please enter site address</p>
+    </ion-item>
+
+    <button ion-button block type="submit" [disabled]="!siteForm.valid">
+      Add Site
+    </button>
+  </form>
+
+</ion-content>

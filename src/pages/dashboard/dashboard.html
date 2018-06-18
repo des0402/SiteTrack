@@ -1,0 +1,76 @@
+<!--
+  Generated template for the DashboardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngIf="currentSite.name !== NaN" class="detailCard" >
+        <ion-card-header style="text-align: center; font-size:45px">
+        <strong>{{currentSite?.name}}</strong>:<strong style="margin-left:5%;">{{currentSite?.address}}</strong>
+        </ion-card-header>
+        <!-- <ion-card-content>
+        <p>Address: </p>
+        <p>Created By: </p>
+        </ion-card-content> -->
+        <ion-card-content>
+            <h2 style="font-size:30px">Job Lists</h2>
+          <ion-list *ngFor="let j of jobLists"  >
+            <div class="jobTitle">
+                <p style="color:white; font-size:40px">{{j.job}}</p>
+            </div>
+            <div style="margin:5%; " >
+              <a style="font-size:20px" (click)="goToJobDetail(j.id)">show staff members</a>
+              <ion-list *ngFor="let s of staffList">
+                  <p style="font-size:30px" *ngIf="j.id === currentJob.id">{{s?.staff}}</p>
+              </ion-list>
+            </div>   
+          </ion-list>
+  
+            <!-- <h2>Staffs</h2>
+            <ion-list *ngFor="let s of staffList">
+              <p>{{s?.staff}}</p>
+            </ion-list> -->
+        </ion-card-content>
+      </ion-card>
+ 
+    <table border="1" >
+      <tr style="padding:5px;">
+        <th>Site</th>
+        <th>Address</th>
+        <th>Created By</th>
+      </tr>
+      <tr *ngFor="let site of siteList" >
+        <th (click)="goToSiteDetail(site.id)">
+          {{site?.name}}
+        </th>
+        <th>
+          {{site?.address}}
+        </th>
+        <td>
+         <!-- <p *ngFor="let j of jobLists">{{j?.job}}</p> -->
+
+        <p>{{site?.createdBy}}</p>
+       
+        </td>
+      </tr>
+    </table>
+
+   
+
+    <!-- <button ion-button (click)="listJob()">List job on console</button> -->
+
+</ion-content>

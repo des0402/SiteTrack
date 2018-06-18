@@ -1,0 +1,35 @@
+<!--
+  Generated template for the SitedetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>sitedetail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+      <ion-card-header>
+      {{currentSite?.name}}
+      </ion-card-header>
+      <ion-card-content>
+      <p>Address: <strong>{{currentSite?.address}}</strong></p>
+      <p>Created By: <strong>{{currentSite?.createdBy}}</strong></p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list>
+      <button ion-button block (click)="addNewJob()">Add Job</button>
+    </ion-list>
+    <ion-list>
+        <ion-item *ngFor="let j of jobList" (click)="goToJobDetail(j.id)">
+          <h2>{{j?.job}}</h2>
+        </ion-item>
+      </ion-list>
+</ion-content>
